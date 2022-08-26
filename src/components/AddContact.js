@@ -9,13 +9,13 @@ class AddContact extends React.Component {
 
   add = (e) => {
     e.preventDefault();
-    if(this.state.name === "" || this.state.email === ""){
+    if (this.state.name === "" || this.state.email === "") {
       alert("Name and email field are mandatory!");
-      return
+      return;
     }
     this.props.addContactHandler(this.state);
-    this.setState({name: "", email: "",number: ""});
-  }
+    this.setState({ name: "", email: "", number: "" });
+  };
   render() {
     return (
       <div className="ui main">
@@ -50,13 +50,76 @@ class AddContact extends React.Component {
               onChange={(e) => this.setState({ number: e.target.value })}
             />
           </div>
-          
+          <div className="field">
+            Select Gender: <b />
+          </div>
+          <div className="field">
+            <div className="ui radio checkbox">
+              <input
+                type="radio"
+                className="hidden"
+                name="radioGroup"
+                readOnly=""
+                tabIndex={0}
+                defaultValue="this"
+              />
+              <label>Male</label>
+            </div>
+          </div>
+          <div className="field">
+            <div className="ui radio checkbox">
+              <input
+                type="radio"
+                className="hidden"
+                name="radioGroup"
+                readOnly=""
+                tabIndex={0}
+                defaultValue="that"
+              />
+              <label>Female</label>
+            </div>
+          </div>
+
+          <div className="field">
+            Select Hobbies: <b />
+          </div>
+
+          <div className="ui checkbox">
+            <input
+              type="checkbox"
+              className="hidden"
+              readOnly=""
+              tabIndex={0}
+            />
+            <label>Cricket</label>
+          </div>
+
+          <div className="ui checkbox">
+            <input
+              type="checkbox"
+              className="hidden"
+              readOnly=""
+              tabIndex={0}
+            />
+            <label>Football</label>
+          </div>
+
+          <div className="ui checkbox">
+            <input
+              type="checkbox"
+              className="hidden"
+              readOnly=""
+              tabIndex={0}
+            />
+            <label>Volleyball</label>
+          </div>
+          <br></br>
+          <br></br>
           <button className="ui button blue">Add</button>
         </form>
       </div>
     );
-  };
-
+  }
 }
 
 export default AddContact;
